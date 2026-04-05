@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Startup Demo Website</title>
+</head>
+<body>
+
+    <h1>🚀 My Startup Website</h1>
+
+    <!-- Task 4 -->
+    <p id="text">Welcome to our startup!</p>
+    <button onclick="changeText()">Change Text</button>
+
+    <br><br>
+
+    <!-- Task 5 -->
+    <button onclick="changeStyle()">Change Style</button>
+    <button onclick="toggleStyle()">Toggle Style</button>
+
+    <br><br>
+
+    <!-- Task 6 -->
+    <button onclick="showAlert()">Show Alert</button>
+
+    <div id="hoverBox" 
+         style="width:200px;height:100px;background:lightgray;"
+         onmouseover="mouseOver()" 
+         onmouseout="mouseOut()">
+        Hover over me
+    </div>
+
+    <br><br>
+
+    <!-- Task 7 -->
+    <button onclick="getUserName()">Enter Name</button>
+    <p id="greet"></p>
+
+    <br>
+
+    <form onsubmit="submitForm(event)">
+        Name: <input type="text" id="name"><br><br>
+        Email: <input type="text" id="email"><br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <br>
+
+    <button onclick="printPage()">Print Page</button>
+
+    <script>
+        // Task 1: Variables
+        var company = "MyStartup";
+        let founder = "Jaswanth";
+        const year = 2026;
+
+        console.log(company, founder, year);
+
+        // Task 2: Functions
+        function add(a, b) {
+            return a + b;
+        }
+
+        const subtract = (a, b) => a - b;
+
+        console.log("Addition:", add(5, 3));
+        console.log("Subtraction:", subtract(5, 3));
+
+        // Task 3: Built-in Functions
+        function showAlert() {
+            alert("Welcome to our Startup!");
+            let userInput = prompt("Enter something:");
+            console.log("User entered:", userInput);
+        }
+
+        // Task 4: DOM Manipulation
+        function changeText() {
+            document.getElementById("text").innerHTML = "Text Changed Successfully!";
+        }
+
+        // Task 5: Styling
+        function changeStyle() {
+            let el = document.getElementById("text");
+            el.style.color = "blue";
+            el.style.fontSize = "20px";
+            el.style.backgroundColor = "yellow";
+        }
+
+        function toggleStyle() {
+            let el = document.getElementById("text");
+            if (el.style.color === "red") {
+                el.style.color = "black";
+            } else {
+                el.style.color = "red";
+            }
+        }
+
+        // Task 6: Events
+        function mouseOver() {
+            document.getElementById("hoverBox").style.backgroundColor = "orange";
+        }
+
+        function mouseOut() {
+            document.getElementById("hoverBox").style.backgroundColor = "lightgray";
+        }
+
+        function submitForm(event) {
+            event.preventDefault();
+            console.log("Form Submitted");
+
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+
+            if (name === "" || email === "") {
+                alert("All fields are required!");
+            } else {
+                alert("Form Submitted Successfully!");
+            }
+        }
+
+        // Task 7: Interactive
+        function getUserName() {
+            let name = prompt("Enter your name:");
+            document.getElementById("greet").innerHTML = "Hello " + name + "!";
+        }
+
+        function printPage() {
+            window.print();
+        }
+    </script>
+
+</body>
+</html>

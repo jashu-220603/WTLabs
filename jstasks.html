@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ResolveX Platform</title>
+</head>
+<body>
+
+<h1 id="title">ResolveX</h1>
+<p id="status">Welcome to the Issue Reporting Platform</p>
+
+<!-- Buttons -->
+<button onclick="updateStatus()">Update Status</button>
+<button onclick="toggleTheme()">Switch Theme</button>
+<button onclick="showNotification()">Notify</button>
+<button onclick="getUser()">Identify User</button>
+<button onclick="printPage()">Export as PDF</button>
+
+<br><br>
+
+<!-- Form -->
+<form onsubmit="submitIssue(event)">
+    <input type="text" id="issue" placeholder="Describe your issue..." required>
+    <button type="submit">Submit Issue</button>
+</form>
+
+<p id="output"></p>
+
+<script>
+
+// =====================
+// Task 1: Variables
+// =====================
+var platform = "ResolveX";
+let currentUser = "Guest";
+const maxIssues = 100;
+
+console.log(platform, currentUser, maxIssues);
+
+
+// =====================
+// Task 2: Functions
+// =====================
+function add(a, b) {
+    return a + b;
+}
+
+const subtract = (a, b) => a - b;
+
+console.log("Add:", add(5, 3));
+console.log("Subtract:", subtract(5, 3));
+
+
+// =====================
+// Task 3: Built-in Functions
+// =====================
+function showNotification() {
+    alert("Action completed successfully!");
+}
+
+function getUser() {
+    let name = prompt("Enter your name:");
+    currentUser = name;
+    document.getElementById("status").innerHTML = "Active User: " + name;
+}
+
+
+// =====================
+// Task 4: HTML Manipulation
+// =====================
+function updateStatus() {
+    document.getElementById("status").innerHTML = "System updated successfully.";
+}
+
+
+// =====================
+// Task 5: Styling
+// =====================
+let darkMode = false;
+
+function toggleTheme() {
+    let element = document.getElementById("status");
+
+    if (!darkMode) {
+        element.style.color = "#ffffff";
+        element.style.backgroundColor = "#333";
+        element.style.padding = "10px";
+        element.style.fontSize = "20px";
+        darkMode = true;
+    } else {
+        element.style.color = "#000000";
+        element.style.backgroundColor = "transparent";
+        element.style.fontSize = "16px";
+        darkMode = false;
+    }
+}
+
+
+// =====================
+// Task 6: Events
+// =====================
+document.getElementById("status").onmouseover = function () {
+    this.style.color = "orange";
+};
+
+document.getElementById("status").onmouseout = function () {
+    this.style.color = "black";
+};
+
+function submitIssue(event) {
+    event.preventDefault();
+
+    let issueText = document.getElementById("issue").value;
+
+    console.log("Issue submitted by:", currentUser);
+
+    document.getElementById("output").innerHTML =
+        "Issue recorded: " + issueText;
+}
+
+
+// =====================
+// Task 7: Print
+// =====================
+function printPage() {
+    window.print();
+}
+
+</script>
+
+</body>
+</html>
